@@ -71,8 +71,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="bg-white w-full max-w-6xl rounded-2xl overflow-hidden shadow-2xl relative">
+    <div 
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-white w-full max-w-6xl rounded-2xl overflow-hidden shadow-2xl relative cursor-default"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center gap-3">

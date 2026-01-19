@@ -22,12 +22,12 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onSelect, isCompleted }) =
 
   return (
     <div 
-      className={`group relative bg-white rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-xl cursor-pointer ${
+      className={`group relative bg-white rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col h-full ${
         isCompleted ? 'border-green-200 bg-green-50/10' : 'border-gray-100'
       }`}
       onClick={() => onSelect(video)}
     >
-      <div className={`aspect-video relative overflow-hidden bg-gradient-to-br ${getBgColor(video.Category)} flex items-center justify-center`}>
+      <div className={`aspect-video relative overflow-hidden bg-gradient-to-br ${getBgColor(video.Category)} flex items-center justify-center shrink-0`}>
         {/* 去除图片，改为文字图标占位 */}
         <div className="flex flex-col items-center text-white/20 group-hover:scale-110 transition-transform duration-500">
            <BookOpen className="w-12 h-12 mb-2" />
@@ -73,18 +73,18 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onSelect, isCompleted }) =
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         <div className="flex justify-between items-start mb-2">
           <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
             {video.Category}
           </span>
         </div>
-        <h3 className="font-bold text-gray-800 line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors h-10">
+        <h3 className="font-bold text-gray-800 leading-snug group-hover:text-blue-600 transition-colors mb-4 flex-1">
           {video.Title}
         </h3>
         
         {video.MaterialLink && isFree && (
-          <div className="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
+          <div className="pt-3 border-t border-gray-50 flex items-center justify-between mt-auto">
             <button 
               className="flex items-center text-xs text-blue-500 hover:text-blue-700"
               onClick={(e) => {
